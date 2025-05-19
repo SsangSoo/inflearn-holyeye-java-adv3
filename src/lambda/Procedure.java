@@ -1,6 +1,6 @@
 package lambda;
 
-@FunctionalInterface // 추가
+@FunctionalInterface
 public interface Procedure {
     void run();
 }
