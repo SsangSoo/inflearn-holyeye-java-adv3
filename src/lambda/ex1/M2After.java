@@ -1,7 +1,7 @@
 package lambda.ex1;
 
 public class M2After {
-    public static void print(int num, String unit) {
+    public static void print(int weight, String unit) {
         System.out.println("무게: " + num + unit);
     }
     public static void main(String[] args) {
