@@ -5,7 +5,7 @@ public class Delivery {
     private String status;
     private boolean canceled;
 
-    public Delivery(final String status, final boolean canceled) {
+    public Delivery(String status, boolean canceled) {
         this.status = status;
         this.canceled = canceled;
     }

@@ -18,19 +18,28 @@ public class DeliveryMain {
     }
 
     public static void main(String[] args) {
-//        System.out.println("1 = " + getDeliveryStatus(1L));
-//        System.out.println("2 = " + getDeliveryStatus(2L));
-//        System.out.println("3 = " + getDeliveryStatus(3L));
-//        System.out.println("4 = " + getDeliveryStatus(4L));
-
+        System.out.println("1 = " + getDeliveryStatus(1L));
+        System.out.println("2 = " + getDeliveryStatus(2L));
+        System.out.println("3 = " + getDeliveryStatus(3L));
+        System.out.println("4 = " + getDeliveryStatus(4L));
     }
 
+    // 나의 답
+    private static String getDeliveryStatus(Long orderId) {
+        return findOrder(orderId)
+                .map(Order::getDelivery)
+                .map(d -> d.isCanceled() ? "배송X" : d.getStatus())
+                .orElseGet(() -> "배송X");
+    }
+
+
 //    private static String getDeliveryStatus(Long orderId) {
-//        return findOrder(orderId)
-//                .map(o -> o.getDelivery())
-//                .map(d -> d.isCanceled() ? "배송x" : d.getStatus())
-//
+//        return findOrder(orderId).map(o -> o.getDelivery())
+//                .filter(delivery -> !delivery.isCanceled())
+//                .map(delivery -> delivery.getStatus()) // Delivery -> String
+//                .orElse("배송X"); // 값이 없으면 "배송X"
 //    }
+
 
     static Optional<Order> findOrder(Long orderId) {
         return Optional.ofNullable(orderRepository.get(orderId));
