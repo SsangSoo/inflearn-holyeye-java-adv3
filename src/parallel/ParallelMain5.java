@@ -14,8 +14,8 @@ public class ParallelMain5 {
         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "3");
 
         // 요청 풀 추가
-        ExecutorService requestPool = Executors.newFixedThreadPool(3);
-        int nThreads = 3; // 1, 2, 3, 10, 20
+        ExecutorService requestPool = Executors.newFixedThreadPool(100);
+        int nThreads = 29; // 1, 2, 3, 10, 20
         for(int i = 1; i <= nThreads; i++) {
             String requestName = "request" + i;
             requestPool.submit(() -> logic(requestName));
