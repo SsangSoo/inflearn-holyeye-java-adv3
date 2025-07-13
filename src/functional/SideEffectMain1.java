@@ -13,9 +13,7 @@ public class SideEffectMain1 {
             count++;
             return x * 2;
         };
-
         func.apply(10);
         System.out.println("after count = " + count);
-
     }
 }
